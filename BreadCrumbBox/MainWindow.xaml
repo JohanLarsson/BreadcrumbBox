@@ -9,14 +9,16 @@
         Height="350"
         DataContext="{x:Static local:Project.PrePopulated}"
         mc:Ignorable="d">
+
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <local:BreadCrumbBar Grid.Row="0" DataContext="{Binding Path}" />
 
-        <GroupBox Grid.Row="1" Header="Fake AST">
+        <GroupBox Grid.Row="1" Header="Fake AST" Margin="0,70,0,0">
             <TreeView x:Name="AST"
                       ItemsSource="{Binding Children}"
                       SelectedItemChanged="OnSelectedItemChanged">

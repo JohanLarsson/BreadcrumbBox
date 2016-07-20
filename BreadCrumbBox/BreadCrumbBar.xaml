@@ -5,47 +5,27 @@
              xmlns:local="clr-namespace:BreadCrumbBox"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              d:DataContext="{d:DesignInstance local:BreadCrumbPath}"
-             d:DesignHeight="300"
-             d:DesignWidth="300"
              mc:Ignorable="d">
     <ItemsControl ItemsSource="{Binding}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <StackPanel Orientation="Horizontal" />
+                <StackPanel KeyboardNavigation.TabNavigation="Cycle" Orientation="Horizontal" />
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <StackPanel KeyboardNavigation.TabNavigation="Cycle" Orientation="Horizontal">
-                    <Ellipse Width="10"
-                             Height="10"
-                             Fill="Blue" />
-                    <ComboBox Background="{x:Null}"
-                              FocusVisualStyle="{x:Null}"
-                              ItemsSource="{Binding Node.Children}"
-                              SelectedItem="{Binding SelectedChildNode}"
-                              ToolTip="Some tooltip text">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate DataType="{x:Type local:INode}">
-                                <StackPanel Orientation="Horizontal">
-                                    <Ellipse Width="10"
-                                             Height="10"
-                                             Fill="Yellow" />
-                                    <TextBlock Text="{Binding Name}" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                        <ComboBox.Style>
-                            <Style TargetType="{x:Type ComboBox}">
-                                <Style.Triggers>
-                                    <Trigger Property="HasItems" Value="False">
-                                        <Setter Property="Visibility" Value="Collapsed" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </ComboBox.Style>
-                    </ComboBox>
-                </StackPanel>
+                <ComboBox MinWidth="40"
+                          FocusVisualStyle="{x:Null}"
+                          ItemsSource="{Binding Node.Children}"
+                          SelectedItem="{Binding SelectedChildNode}"
+                          ToolTip="Some tooltip text"
+                          Style="{StaticResource BreadcrumbComboBoxStyle}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate DataType="{x:Type local:INode}">
+                            <TextBlock x:Name="TextBlock" Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>

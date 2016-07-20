@@ -4,16 +4,22 @@
              xmlns:local="clr-namespace:BreadCrumbBox"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type local:Method}">
-            <TextBlock Text="{Binding Name}" />
-        </DataTemplate>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ComboBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <DataTemplate DataType="{x:Type local:Method}">
+                <TextBlock Text="{Binding Name}" />
+            </DataTemplate>
 
-        <!--<DataTemplate DataType="{x:Type local:Module}">
+            <!--<DataTemplate DataType="{x:Type local:Module}">
             <TextBlock Text="{Binding Name}" />
         </DataTemplate>-->
 
-        <HierarchicalDataTemplate DataType="{x:Type local:Module}" ItemsSource="{Binding Children}">
-            <TextBlock Text="{Binding Name}" />
-        </HierarchicalDataTemplate>
+            <HierarchicalDataTemplate DataType="{x:Type local:Module}" ItemsSource="{Binding Children}">
+                <TextBlock Text="{Binding Name}" />
+            </HierarchicalDataTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
