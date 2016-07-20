@@ -52,10 +52,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BreadCrumbBar.xaml.cs">
+      <DependentUpon>BreadCrumbBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Nodes\CurrentSelection.cs" />
     <Compile Include="Nodes\INode.cs" />
     <Compile Include="BreadCrumbs\BreadCrumbPath.cs" />
     <Compile Include="Fake AST\Hack.cs" />
+    <Page Include="BreadCrumbBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
