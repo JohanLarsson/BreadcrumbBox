@@ -14,7 +14,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <ItemsControl ItemsSource="{Binding Children}">
+        <ItemsControl ItemsSource="{Binding Path}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal" />
@@ -22,47 +22,33 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <ComboBox ItemsSource="{Binding Children}">
-                        <ComboBox.ItemContainerStyle>
-                            <Style TargetType="{x:Type ComboBoxItem}">
-                                <Setter Property="IsSelected" Value="{Binding IsSelected}" />
+                    <ComboBox ItemsSource="{Binding Node.Children}" SelectedItem="{Binding SelectedChildNode}">
+
+                        <ComboBox.Style>
+                            <Style TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <Trigger Property="HasItems" Value="False">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </Trigger>
+                                </Style.Triggers>
                             </Style>
-                        </ComboBox.ItemContainerStyle>
+                        </ComboBox.Style>
                     </ComboBox>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <!--<TreeView Grid.Row="0"
-                  ItemsSource="{Binding Children}"
-                  Style="{StaticResource BreadCrumbStyle}">
-            <TreeView.Resources>
-                <HierarchicalDataTemplate DataType="{x:Type local:INode}" ItemsSource="{Binding Children}">
-                    <ComboBox ItemsSource="{Binding Children}" />
-                </HierarchicalDataTemplate>
-            </TreeView.Resources>
-            <TreeView.ItemContainerStyle>
-                <Style BasedOn="{StaticResource BreadCrumbItemStyle}" TargetType="{x:Type TreeViewItem}">
-                    <Setter Property="IsSelected" Value="{Binding IsSelected}" />
-                    <Setter Property="IsExpanded" Value="True" />
-                </Style>
-            </TreeView.ItemContainerStyle>
-        </TreeView>-->
-
-        <TreeView x:Name="Tree"
-                  Grid.Row="1"
-                  ItemsSource="{Binding Children}">
-            <TreeView.Resources>
-                <HierarchicalDataTemplate DataType="{x:Type local:Module}" ItemsSource="{Binding Children}">
-                    <TextBlock Text="{Binding Name}" />
-                </HierarchicalDataTemplate>
-            </TreeView.Resources>
-            <TreeView.ItemContainerStyle>
-                <Style TargetType="{x:Type TreeViewItem}">
-                    <Setter Property="IsSelected" Value="{Binding IsSelected}" />
-                    <Setter Property="IsExpanded" Value="True" />
-                </Style>
-            </TreeView.ItemContainerStyle>
-        </TreeView>
+        <GroupBox Grid.Row="1" Header="Fake AST">
+            <TreeView x:Name="AST"
+                      ItemsSource="{Binding Children}"
+                      SelectedItemChanged="OnSelectedItemChanged">
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="True" />
+                        <Setter Property="local:Hack.SyncSelection" Value="True" />
+                    </Style>
+                </TreeView.ItemContainerStyle>
+            </TreeView>
+        </GroupBox>
     </Grid>
 </Window>
