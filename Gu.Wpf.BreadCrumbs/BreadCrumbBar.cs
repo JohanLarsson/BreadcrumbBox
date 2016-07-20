@@ -1,13 +1,13 @@
-﻿namespace Gu.Wpf.BreadCrumbs
+﻿namespace Gu.Wpf.Breadcrumbs
 {
     using System.Windows;
     using System.Windows.Controls;
 
-    public class BreadCrumbBar : ItemsControl
+    public class BreadcrumbBar : ItemsControl
     {
-        static BreadCrumbBar()
+        static BreadcrumbBar()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(BreadCrumbBar), new FrameworkPropertyMetadata(typeof(BreadCrumbBar)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(BreadcrumbBar), new FrameworkPropertyMetadata(typeof(BreadcrumbBar)));
         }
     }
 }

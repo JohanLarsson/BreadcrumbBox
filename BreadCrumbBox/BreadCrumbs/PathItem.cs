@@ -1,4 +1,4 @@
-﻿namespace BreadCrumbBox
+﻿namespace BreadcrumbBox
 {
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
@@ -8,7 +8,6 @@
     public class PathItem : INotifyPropertyChanged
     {
         private INode node;
-
         private INode selectedChildNode;
 
         public PathItem(INode node)

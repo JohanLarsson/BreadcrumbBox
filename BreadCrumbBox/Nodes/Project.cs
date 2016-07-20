@@ -1,4 +1,4 @@
-namespace BreadCrumbBox
+namespace BreadcrumbBox
 {
     using System.Collections.Generic;
 
@@ -7,7 +7,7 @@ namespace BreadCrumbBox
         public Project(IEnumerable<INode> children)
         {
             this.Children = children;
-            this.Path = new BreadCrumbPath(this);
+            this.Path = new BreadcrumbPath(this);
         }
 
         public static Project PrePopulated { get; } = CreatePrePopulated();
@@ -16,7 +16,7 @@ namespace BreadCrumbBox
 
         public IEnumerable<INode> Children { get; }
 
-        public BreadCrumbPath Path { get; }
+        public BreadcrumbPath Path { get; }
 
         public override string ToString() => $"Project: {this.Name}";
 

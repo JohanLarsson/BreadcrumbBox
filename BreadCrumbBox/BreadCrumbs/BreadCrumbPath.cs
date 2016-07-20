@@ -1,20 +1,20 @@
-﻿namespace BreadCrumbBox
+﻿namespace BreadcrumbBox
 {
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
 
-    public class BreadCrumbPath : ReadOnlyObservableCollection<PathItem>
+    public class BreadcrumbPath : ReadOnlyObservableCollection<PathItem>
     {
         private readonly ObservableCollection<PathItem> path;
         private readonly PathItem root;
 
-        public BreadCrumbPath(INode root)
+        public BreadcrumbPath(INode root)
             : this(root, new ObservableCollection<PathItem>())
         {
         }
 
-        private BreadCrumbPath(INode root, ObservableCollection<PathItem> path)
+        private BreadcrumbPath(INode root, ObservableCollection<PathItem> path)
             : base(path)
         {
             this.path = path;

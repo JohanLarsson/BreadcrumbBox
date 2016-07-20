@@ -1,4 +1,4 @@
-﻿namespace BreadCrumbBox
+﻿namespace BreadcrumbBox
 {
     using System.Windows;
 
