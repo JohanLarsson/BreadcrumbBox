@@ -250,7 +250,8 @@
                                                           RelativeSource={RelativeSource TemplatedParent}}"
                                       Style="{StaticResource ComboBoxReadonlyToggleButton}" />
 
-                        <ContentPresenter Grid.Column="0"
+                        <ContentPresenter x:Name="ContentPresenter"
+                                          Grid.Column="0"
                                           Margin="{TemplateBinding Padding}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -265,10 +266,16 @@
                         <Trigger Property="HasItems" Value="false">
                             <Setter TargetName="DropDownBorder" Property="Height" Value="95" />
                         </Trigger>
+
+                        <Trigger Property="SelectedItem" Value="{x:Null}">
+                            <Setter TargetName="ContentPresenter" Property="Content" Value="no selection..." />
+                        </Trigger>
+
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
                             <Setter Property="Background" Value="#FFF4F4F4" />
                         </Trigger>
+
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsGrouping" Value="true" />
