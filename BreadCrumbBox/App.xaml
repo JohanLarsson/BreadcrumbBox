@@ -1,0 +1,17 @@
+﻿<Application x:Class="BreadCrumbBox.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:BreadCrumbBox"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="TreeView.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type local:Method}">
+                <TextBlock Text="{Binding Name}" />
+            </DataTemplate>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
