@@ -1,8 +1,8 @@
-namespace Gu.Wpf.BreadCrumbs
+namespace Gu.Wpf.Breadcrumbs
 {
     using System.Windows.Controls;
 
-    public class BreadCrumbItem : Control
+    public class BreadcrumbItem : Control
     {
 
     }

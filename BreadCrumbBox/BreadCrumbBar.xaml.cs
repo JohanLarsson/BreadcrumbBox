@@ -1,12 +1,12 @@
-﻿namespace BreadCrumbBox
+﻿namespace BreadcrumbBox
 {
     using System.Windows.Controls;
 
-    public partial class BreadCrumbBar : UserControl
+    public partial class BreadcrumbBar : UserControl
     {
-        public BreadCrumbBar()
+        public BreadcrumbBar()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }
