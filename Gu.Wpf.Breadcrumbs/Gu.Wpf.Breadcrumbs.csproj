@@ -45,12 +45,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="BreadCrumbBar.cs">
+    <Compile Include="BreadcrumbBar.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BreadCrumbItem.cs" />
+    <Compile Include="BreadcrumbItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
